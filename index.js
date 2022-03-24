@@ -60,3 +60,35 @@ let myBag = {
 
 console.log(myBag[fruit]); //5
 console.log(Object.keys(myBag)); //["Yellow Berry"]
+
+// Instructions
+// Write a function that takes a single string (word) as argument. The function must return an ordered list containing the indexes of all capital letters in the string.
+
+// Example
+// Test.assertSimilar( capitals('CodEWaRs'), [0,3,4,6] );
+const capitals = function (word) {
+  // Write your code here
+  let regex = /[A-Z]/g;
+  let caps = word
+    .split('')
+    .filter((letter) => {
+      if (/^[A-Z]*$/.test(letter)) {
+        return letter;
+      }
+    })
+    .map((item) => word.indexOf(item));
+
+  return caps;
+};
+
+console.log(capitals('ReGexB'));
+console.log(capitals('CodEWaRs'));
+
+//Alternative solution
+var capitalsIndex = function (word) {
+  var caps = [];
+  for (var i = 0; i < word.length; i++) {
+    if (word[i].toUpperCase() == word[i]) caps.push(i);
+  }
+  return caps;
+};
