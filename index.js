@@ -111,6 +111,30 @@ console.log(student.gpa); //undefined ->no such property??
 console.log('gpa' in student); //true ->technically exists
 // It’s when an object property exists, but stores undefined
 
+// The “for…in” loop
+// *****************************************
+
+//To walk over all keys of an object, there exists a special form of the loop: for..in.
+for (let key in student) {
+  console.log(key); //name, age, collete, gpa
+}
+
+// Instead of 'key' as looping variable inside the loop, 'for(let prop in obj)' is also widely used.
+for (let prop in student) {
+  console.log(student[prop]); //Miraj, 23, SMC, undefined
+}
+
+//Ordered like an object
+// -------------------------------------
+
+// if we loop over an object, do we get all properties in the same order they were added? 
+// integer properties are sorted, others appear in creation order. 
+//if the keys are non-integer, then they are listed in the creation order,
+//The “integer property” term here means a string that can be converted to-and-from an integer without a change. eg. '49'
+
+
+
+
 // Instructions
 // Write a function that takes a single string (word) as argument. The function must return an ordered list containing the indexes of all capital letters in the string.
 
