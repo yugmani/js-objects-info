@@ -61,6 +61,56 @@ let myBag = {
 console.log(myBag[fruit]); //5
 console.log(Object.keys(myBag)); //["Yellow Berry"]
 
+//Property value shorthand
+// ********************************************
+
+//We may use existing variables as values for property names.
+
+// if properties have the same names as variables, then the use-case of making a property from a variable is so common, that there's a special property value shorthand to make it shorter.
+
+// eg. for { name : name } just write { name }
+function makeUser(name, age) {
+  return {
+    name, // instead of-> name : name
+    age, // instead of-> age : age
+    //...
+  };
+}
+
+// Property names limitations
+// ----------------------------------------
+
+// A variable cannot have a name equal to one of language-reserved words
+// But for an object property, there’s no such restriction.
+// Property names can be any strings or symbols ( a special type for identifiers)
+
+// Property existence test, “in” operator
+// *********************************************
+
+// In javaScript, it’s possible to access any property. There will be no error if the property doesn’t exist!
+// Reading a non-existing property just returns 'undefined'.
+const student = {
+  name: 'Miraj',
+  age: 23,
+  college: 'SMC',
+  gpa: undefined,
+};
+
+console.log(student.name); //Miraj
+console.log(student.grade); //undefined ->the property grade doesn't exist
+
+//There’s also a special operator "in" for that.
+// syntax:  "key" in object
+
+console.log('age' in student); //true
+console.log('grade' in student); //false
+let key = 'college';
+console.log(key in student); //true
+
+console.log(student.gpa); //undefined ->no such property??
+console.log('gpa' in student); //true ->technically exists
+// It’s when an object property exists, but stores undefined
+
 // Instructions
 // Write a function that takes a single string (word) as argument. The function must return an ordered list containing the indexes of all capital letters in the string.
 
